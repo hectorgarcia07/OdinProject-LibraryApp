@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Library App</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            <nav class="nav-bar border">
+                <h1>Library App</h1>
+                <button id="add-book-btn">Add new book</button>
+            </nav>
+        </header>
+        <div class="container">
+            <main>
+                <div class="book">
+
+                </div>
+                <div class="popup">
+                    <div class="book-form">
+                        <div class="close-btn">
+                            <a href="#" class="fa fa-close" id="close-form" style="font-size:32px;"></a>
+                        </div>
+                        <h2 class="form-header">Book Information</h2>
+                        <form action="" class="form">
+                            <div class="form-section">
+                                <label for="Title" class="form-secion-item">Title</label>
+                                <input type="text" class="form-secion-item" id="Title">
+                            </div>
+                            <div class="form-section">
+                                <label for="Author" class="form-secion-item">Author</label>
+                                <input type="text" id="Author" class="form-secion-item">
+                            </div>
+
+                            <input class="submit-btn form-secion-item" type="submit" value="Add Book">
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <script src="scripts/script.js"></script>
+    </body>
+</html>
