@@ -14,25 +14,26 @@
         </header>
         <div class="container">
             <main>
-                <div class="book">
+                <div class="book-container" id="bookContainer">
+                    
                 </div>
                 <div class="popup">
                     <div id="book-form">
-                        <div id="book-form-close-btn">
-                            <a href="#" class="fa fa-close" id="close-form" style="font-size:32px;"></a>
+                        <div class="book-form-close-btn">
+                            <i class="fa fa-close close-form-btn" id="close-form" style="font-size:32px;"></i>
                         </div>
                         <h2 class="form-header">Book Information</h2>
                         <form action="" class="form">
                             <div class="form-section">
-                                <label for="Title" class="form-secion-item">Title</label>
-                                <input type="text" class="form-secion-item" id="Title" required>
+                                <label for="title" class="form-secion-item">Title</label>
+                                <input type="text" class="form-secion-item" id="title" name="title" required>
                             </div>
                             <div class="form-section">
-                                <label for="Author" class="form-secion-item">Author</label>
-                                <input type="text" id="Author" class="form-secion-item" required>
+                                <label for="author" class="form-secion-item">Author</label>
+                                <input type="text" id="author" name="author" class="form-secion-item" required>
                             </div>
 
-                            <input class="submit-btn form-secion-item" type="submit" value="Add Book">
+                            <input id="submitBtn" class="submit-btn form-secion-item" type="submit" value="Add Book">
                         </form>
                     </div>
                 </div>
