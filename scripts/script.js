@@ -12,7 +12,7 @@ submitBtn.addEventListener("click", function(){
 
     //only add and display book if form has information
     if(getTitle.value != "" && getAuthor.value != ""){
-        myLibrary.push(addBookToLibrary(myLibrary.length));//create column cointaining book info
+        myLibrary.push(addBookToLibrary(myLibrary.length));//adds book obj to array
         document.querySelector(".popup").style.display = "none";//hide popup
         render(); //display all books
     }
@@ -28,16 +28,14 @@ closeForm.addEventListener("click", function(){
 });
 
 //Book object
-function Book(title, author, index) {
+function Book(title, author) {
     this.title = title;
     this.author = author;
-    this.index = index;
 }
 
 //returns Book object
 function addBookToLibrary(index) {
-    let book = new Book(getTitle.value, getAuthor.value, index);
-    return book;
+    return new Book(getTitle.value, getAuthor.value);
 }
 
 //displays all the books in the myLibrary array
@@ -61,21 +59,43 @@ function render(){
     }
 }
 
+//will create a column cointaining book information
+function createBookCol(index) {
+    let bookItem = document.createElement('div');
+    let bookTitle = document.createElement('h2');
+    let bookContent = document.createElement('p');
+    let checkbox = createReadStatus();//builds checkbox status
+
+    //adds style to the column
+    bookItem.className = "book-item";
+
+    //adds information to the column
+    bookTitle.innerText = myLibrary[index].title;
+    bookContent.innerText = myLibrary[index].author;
+
+    //builds the book column
+    bookItem.appendChild(createCloseBtn(index));
+    bookItem.appendChild(bookTitle);
+    bookItem.appendChild(bookContent);
+    bookItem.appendChild(checkbox[0]);
+    bookItem.appendChild(checkbox[1]);
+
+    return bookItem;
+}
+
 function createCloseBtn(index){
     let bookBtnContainer = document.createElement('div');
     bookBtnContainer.className = "book-form-close-btn";
 
     let closeBtn = document.createElement('i');
+    closeBtn.index = index;
 
-    /*
-        trying to get this eventListener to work
-    */
+    //if clicked, delete object from array and re-render existing objs
     closeBtn.addEventListener("click", function () {
-        console.log("Testing");
+        myLibrary.splice(index, 1);
+        render();
     });
-    /*
-        Code above not working
-    */
+    
     closeBtn.classList.add("fa", "fa-close", "close-form-btn");
     closeBtn.style.fontSize = "32px";
     bookBtnContainer.appendChild(closeBtn);
@@ -83,19 +103,25 @@ function createCloseBtn(index){
     return bookBtnContainer;
 }
 
-//will create a column cointaining book information
-function createBookCol(index){
-    let bookItem = document.createElement('div');
-    
-    //adds style to the column
-    bookItem.className = "book-item";
+function createReadStatus(){
+    let readStatus = document.createElement("input");
+    let readStatusLabel = document.createElement("label")
+    readStatus.type = "checkbox";
+    readStatus.name = "status";
+    readStatus.value = "read";
+    readStatus.id = "status";
 
-    //adds close button. JAVASCRIPT ISN"T WORKING
-    bookItem.appendChild(createCloseBtn(index));
+    readStatusLabel.id = "status";
+    readStatusLabel.innerText = "Not Read";
 
-    //adds information to the column
-    bookItem.innerHTML += '<h2>' + myLibrary[index].title + '</h2>'
-    bookItem.innerHTML += '<p> Author: ' + myLibrary[index].title + '</p>'
-
-    return bookItem;
+    readStatus.addEventListener("click", function(){
+        if (readStatus.checked){
+            readStatusLabel.innerText = "Read";
+        }
+        else{
+            readStatusLabel.innerText = "Not Read";
+        }
+    });
+    return [readStatus, readStatusLabel];
 }
+
