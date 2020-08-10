@@ -12,7 +12,7 @@ submitBtn.addEventListener("click", function(){
 
     //only add and display book if form has information
     if(getTitle.value != "" && getAuthor.value != ""){
-        myLibrary.push(addBookToLibrary(myLibrary.length));//adds book obj to array
+        myLibrary.push(addBookToLibrary());//adds book obj to array
         document.querySelector(".popup").style.display = "none";//hide popup
         render(); //display all books
     }
@@ -28,14 +28,20 @@ closeForm.addEventListener("click", function(){
 });
 
 //Book object
-function Book(title, author) {
+function Book(title, author, status) {
     this.title = title;
     this.author = author;
+    this.status = status;
 }
 
 //returns Book object
-function addBookToLibrary(index) {
-    return new Book(getTitle.value, getAuthor.value);
+function addBookToLibrary() {
+    let getStatus = document.getElementsByName("read");
+    let readStatus = false;
+    if (getStatus[0].checked) {
+        readStatus = true;
+    }
+    return new Book(getTitle.value, getAuthor.value, readStatus);
 }
 
 //displays all the books in the myLibrary array
@@ -64,7 +70,7 @@ function createBookCol(index) {
     let bookItem = document.createElement('div');
     let bookTitle = document.createElement('h2');
     let bookContent = document.createElement('p');
-    let checkbox = createReadStatus();//builds checkbox status
+    let checkbox = createReadStatus(index);//builds checkbox status
 
     //adds style to the column
     bookItem.className = "book-item";
@@ -103,23 +109,33 @@ function createCloseBtn(index){
     return bookBtnContainer;
 }
 
-function createReadStatus(){
+//will create the books reading status if read
+function createReadStatus(index){
     let readStatus = document.createElement("input");
-    let readStatusLabel = document.createElement("label")
+    let readStatusLabel = document.createElement("label");
+    let checkReadStatus = document.getElementsByName("read");
     readStatus.type = "checkbox";
     readStatus.name = "status";
     readStatus.value = "read";
     readStatus.id = "status";
-
     readStatusLabel.id = "status";
-    readStatusLabel.innerText = "Not Read";
+
+    if(myLibrary[index].status){
+        readStatusLabel.innerText = "Reading";
+        readStatus.checked = true;
+    }
+    else{
+        readStatusLabel.innerText = "Not Reading";
+    }
 
     readStatus.addEventListener("click", function(){
         if (readStatus.checked){
-            readStatusLabel.innerText = "Read";
+            readStatusLabel.innerText = "Reading";
+            myLibrary[index].status = true;
         }
         else{
-            readStatusLabel.innerText = "Not Read";
+            readStatusLabel.innerText = "Not Reading";
+            myLibrary[index].status = false;
         }
     });
     return [readStatus, readStatusLabel];

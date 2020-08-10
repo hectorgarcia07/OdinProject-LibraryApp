@@ -1,4 +1,4 @@
-body, h1, h2{
+body, h1, h2, h4{
     margin: 0;
 }
 
@@ -139,6 +139,8 @@ button{
     padding: 0.2em;
     cursor:pointer;
 }
+
+
 
 .form-secion-item:focus{
     border-color: red;
