@@ -2,12 +2,13 @@
 <html>
     <head>
         <title>Library App</title>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <header>
-            <nav class="nav-bar border">
+            <nav class="nav-bar">
                 <h1>Library App</h1>
                 <button id="add-book-btn">Add New Book</button>
             </nav>
@@ -25,23 +26,23 @@
                         <h2 class="form-header">Book Information</h2>
                         <form action="" class="form">
                             <div class="form-section">
-                                <label for="title" class="form-secion-item">Title</label>
-                                <input type="text" class="form-secion-item" id="title" name="title" required>
+                                <label for="title" class="form-section-label">Title</label>
+                                <input type="text" class="form-section-input" id="title" name="title" required>
                             </div>
                             <div class="form-section">
-                                <label for="author" class="form-secion-item">Author</label>
-                                <input type="text" id="author" name="author" class="form-secion-item" required>
+                                <label for="author" class="form-section-label">Author</label>
+                                <input type="text" id="author" name="author" class="form-section-input" required>
                             </div>
                             <div class="form-section">
-                                <h4>Are you reading this book?</h4>
+                                <label for="title" class="form-section-label">Are you reading this book?</label>
                                 <div>
                                     <input type="radio" name="read" value="yes" checked>
-                                    <label for="yes">Yes</label>
+                                    <label for="yes" class="form-section-label">Yes</label>
                                     <input type="radio" name="read" value="no">
-                                    <label for="no">No</label>
+                                    <label for="no" class="form-section-label">No</label>
                                 </div>
                             </div>
-                            <input id="submitBtn" class="submit-btn form-secion-item" type="submit" value="Add Book">
+                            <input id="submitBtn" class="submit-btn form-submit" type="submit" value="Add Book">
                         </form>
                     </div>
                 </div>
