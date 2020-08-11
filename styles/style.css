@@ -93,6 +93,10 @@ button{
     color: red;
 }
 
+.close-form-btn{
+    cursor: pointer;
+}
+
 .fa-close:link,.fa-close:visited{
     color: red;
 }
@@ -117,7 +121,7 @@ button{
 
 #book-form{
     width: 25%;
-    height: 60%;
+    height: 65%;
     border-radius: 20px;
     background-color: #F8AFA6;
     display: flex;
@@ -131,7 +135,7 @@ button{
 
 .form-header{
     text-align: center;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.9em;
     width: 100%;
 }
 
@@ -155,23 +159,49 @@ button{
     font-size: 1.3rem;
     padding: 0.2em;
     cursor:pointer;
-    border: none;
+    border: 1px solid rgb(248, 175, 166);
+    outline: none;
 }
 
 .form-submit{
-    border: 1px solid #F8AFA6;
-}
-
-.form-submit:hover{
-    border: 1px solid red;
+    border: 3px solid #F8AFA6;
+    background-color: rgb(255, 100, 126);
+    color: white;
 }
 
 .form-section-input:focus{
-    border: 1px, solid, red;
     border-color: red;
 }
 
-.close-form-btn{
-    cursor: pointer;
+.form-submit:hover{
+    border: 3px solid blueviolet;
 }
 
+
+.radio-selection input[type="radio"] {
+  opacity: 0;
+  width: 0;
+}
+
+.radio-selection label{
+    display: inline-block;
+    background-color: rgb(255, 140, 159);
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 1px solid rgb(248, 175, 166);
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 35%;
+    text-align: center;
+    outline: none;
+}
+
+.radio-selection label:hover{
+    background-color: rgb(255, 170, 184);
+}
+
+.radio-selection input[type="radio"]:checked + label {
+    background-color:#bfb;
+    border-color: #4c4;
+}

@@ -24,25 +24,25 @@
                             <i class="fa fa-close close-form-btn" id="close-form" style="font-size:32px;"></i>
                         </div>
                         <h2 class="form-header">Book Information</h2>
-                        <form action="" class="form">
+                        <form class="form">
                             <div class="form-section">
                                 <label for="title" class="form-section-label">Title</label>
-                                <input type="text" class="form-section-input" id="title" name="title" required>
+                                <input type="text" class="form-section-input" id="title" name="title" placeholder="Title" required/>
                             </div>
                             <div class="form-section">
                                 <label for="author" class="form-section-label">Author</label>
-                                <input type="text" id="author" name="author" class="form-section-input" required>
+                                <input type="text" id="author" name="author" class="form-section-input" placeholder="Author" required />
                             </div>
                             <div class="form-section">
                                 <label for="title" class="form-section-label">Are you reading this book?</label>
-                                <div>
-                                    <input type="radio" name="read" value="yes" checked>
+                                <div class="radio-selection">
+                                    <input id="yes" type="radio" name="read" value="yes" checked />
                                     <label for="yes" class="form-section-label">Yes</label>
-                                    <input type="radio" name="read" value="no">
+                                    <input id="no" type="radio" name="read" value="no" />
                                     <label for="no" class="form-section-label">No</label>
                                 </div>
                             </div>
-                            <input id="submitBtn" class="submit-btn form-submit" type="submit" value="Add Book">
+                            <input id="submitBtn" class="submit-btn form-submit" type="submit" value="Add Book" />
                         </form>
                     </div>
                 </div>
