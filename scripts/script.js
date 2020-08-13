@@ -5,16 +5,20 @@ let myLibrary = [];
 let getTitle = document.getElementById("title");
 let getAuthor = document.getElementById("author");
 let bookContainer = document.getElementById("bookContainer");
+let checkIfValid = document.getElementById("form");
 
 //add book to array on submit
 submitBtn.addEventListener("click", function(){
     event.preventDefault();
-
+    
     //only add and display book if form has information
-    if(getTitle.value != "" && getAuthor.value != ""){
+    if (checkIfValid.checkValidity()){
         myLibrary.push(addBookToLibrary());//adds book obj to array
         document.querySelector(".popup").style.display = "none";//hide popup
         render(); //display all books
+    }
+    else{
+        checkIfValid.reportValidity();
     }
 })
 
@@ -72,6 +76,9 @@ function createBookCol(index) {
     let bookContent = document.createElement('p');
     let checkbox = createReadStatus(index);//builds checkbox status
 
+    bookTitle.className = "fit-text";
+    bookContent.className = "fit-text";
+
     //adds style to the column
     bookItem.className = "book-item";
 
@@ -83,8 +90,7 @@ function createBookCol(index) {
     bookItem.appendChild(createCloseBtn(index));
     bookItem.appendChild(bookTitle);
     bookItem.appendChild(bookContent);
-    bookItem.appendChild(checkbox[0]);
-    bookItem.appendChild(checkbox[1]);
+    bookItem.appendChild(checkbox);
 
     return bookItem;
 }
@@ -111,14 +117,19 @@ function createCloseBtn(index){
 
 //will create the books reading status if read
 function createReadStatus(index){
+    let wrapper = document.createElement("div");
     let readStatus = document.createElement("input");
     let readStatusLabel = document.createElement("label");
-    let checkReadStatus = document.getElementsByName("read");
     readStatus.type = "checkbox";
     readStatus.name = "status";
     readStatus.value = "read";
     readStatus.id = "status";
     readStatusLabel.id = "status";
+    readStatusLabel.setAttribute("for", "status");
+    wrapper.className = "readToggle";
+
+    wrapper.appendChild(readStatus);
+    wrapper.appendChild(readStatusLabel);
 
     if(myLibrary[index].status){
         readStatusLabel.innerText = "Reading";
@@ -138,6 +149,6 @@ function createReadStatus(index){
             myLibrary[index].status = false;
         }
     });
-    return [readStatus, readStatusLabel];
+    return wrapper;
 }
 

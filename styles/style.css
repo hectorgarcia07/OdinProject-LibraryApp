@@ -18,7 +18,7 @@ button, .form-section-label{
     font-weight: 900;
 }
 
-input[type="text"], input[type="password"], input[type="submit"] { 
+input[type="text"], input[type="password"] { 
     outline: none;
 }
 
@@ -59,13 +59,24 @@ button{
     margin-top: .5em;
 }
 
-/*
-    BOOK CONTAINER
-*/
-
 .book-container{
     width: 90%;
     margin: 0 auto;
+}
+
+/*
+    Created book entry style
+*/
+.book-item{
+    width: 15%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(255, 221, 167);
+    position:relative
+}
+
+.fit-text{
+    overflow-wrap: break-word;
 }
 
 .book-row{
@@ -74,12 +85,13 @@ button{
     margin-bottom: 20px;
 }
 
-.book-item{
-    border: 1px solid black;
-    width: 15%;
-    text-align: center;
-    border-radius: 10px;
+.readToggle{
+    position: absolute; 
+    bottom: 0px; 
+    margin: 0 auto;
+    width: 100%;
 }
+
 
 /*
     FORM STYLE
