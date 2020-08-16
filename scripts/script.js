@@ -77,7 +77,7 @@ function createBookCol(index) {
     let checkbox = createReadStatus(index);//builds checkbox status
 
     bookTitle.className = "fit-text";
-    bookContent.className = "fit-text";
+    bookContent.className = "fit-text book-info";
 
     //adds style to the column
     bookItem.className = "book-item";
@@ -118,37 +118,46 @@ function createCloseBtn(index){
 //will create the books reading status if read
 function createReadStatus(index){
     let wrapper = document.createElement("div");
-    let readStatus = document.createElement("input");
-    let readStatusLabel = document.createElement("label");
-    readStatus.type = "checkbox";
-    readStatus.name = "status";
-    readStatus.value = "read";
-    readStatus.id = "status";
-    readStatusLabel.id = "status";
-    readStatusLabel.setAttribute("for", "status");
-    wrapper.className = "readToggle";
+    let readStatusOn = document.createElement("input");
+    let readStatusLabelOn = document.createElement("label");
+    let readStatusOff = document.createElement("input");
+    let readStatusLabelOff = document.createElement("label");
 
-    wrapper.appendChild(readStatus);
-    wrapper.appendChild(readStatusLabel);
+    wrapper.className = "radio-selection readToggle";
+    wrapper.appendChild(readStatusOn);
+    wrapper.appendChild(readStatusLabelOn);
+    wrapper.appendChild(readStatusOff);
+    wrapper.appendChild(readStatusLabelOff);
+
+    readStatusOn.id = `onInput-${index}`;
+    readStatusOn.type = "radio";
+    readStatusLabelOn.setAttribute("for", `onInput-${index}`);
+    readStatusLabelOn.innerText = "Reading";
+    readStatusOff.id = `offInput-${index}`;
+    readStatusOff.type = "radio";
+    readStatusLabelOff.setAttribute("for", `offInput-${index}`);
+    readStatusLabelOff.innerText = "Not Reading";
+    readStatusLabelOn.className = "book-info form-section-label";
+    readStatusLabelOff.className = "book-info form-section-label";
+    readStatusOn.name = `readStatus-${index}`;
+    readStatusOff.name = `readStatus-${index}`;
 
     if(myLibrary[index].status){
-        readStatusLabel.innerText = "Reading";
-        readStatus.checked = true;
+        readStatusOn.checked = true;
     }
     else{
-        readStatusLabel.innerText = "Not Reading";
+        readStatusOff.checked = true;
     }
 
-    readStatus.addEventListener("click", function(){
-        if (readStatus.checked){
-            readStatusLabel.innerText = "Reading";
+    [readStatusOn, readStatusOff].forEach(radio => radio.addEventListener('click', function (){
+        if (readStatusOn.checked) {
             myLibrary[index].status = true;
         }
-        else{
-            readStatusLabel.innerText = "Not Reading";
+        else {
             myLibrary[index].status = false;
         }
-    });
+    }));
+
     return wrapper;
 }
 

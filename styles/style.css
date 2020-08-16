@@ -12,7 +12,7 @@ h1, h2{
     text-shadow: #FC0 1px 0 10px;
 }
 
-button, .form-section-label{
+button, .form-section-label, .book-info{
     font-family: 'Open Sans', sans-serif;
     color: white;
     font-weight: 900;
@@ -71,7 +71,7 @@ button{
     width: 15%;
     text-align: center;
     border-radius: 10px;
-    background-color: rgb(255, 221, 167);
+    background-color: rgb(255, 202, 116);
     position:relative
 }
 
@@ -85,7 +85,12 @@ button{
     margin-bottom: 20px;
 }
 
+.readTitle{
+    text-align: center;
+}
+
 .readToggle{
+    
     position: absolute; 
     bottom: 0px; 
     margin: 0 auto;
@@ -172,6 +177,7 @@ button{
     padding: 0.2em;
     cursor:pointer;
     border: 1px solid rgb(248, 175, 166);
+    box-sizing: border-box;
     outline: none;
 }
 
@@ -198,9 +204,9 @@ button{
 .radio-selection label{
     display: inline-block;
     background-color: rgb(255, 140, 159);
-    padding: 10px 20px;
+    padding: 0.5em 0.5em;
     font-family: sans-serif, Arial;
-    font-size: 16px;
+    font-size: 0.9rem;
     border: 1px solid rgb(248, 175, 166);
     border-radius: 4px;
     box-sizing: border-box;
