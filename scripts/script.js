@@ -118,25 +118,29 @@ function createCloseBtn(index){
 //will create the books reading status if read
 function createReadStatus(index){
     let wrapper = document.createElement("div");
+    let readStatusDiv = document.createElement("div");
     let readStatusOn = document.createElement("input");
     let readStatusLabelOn = document.createElement("label");
     let readStatusOff = document.createElement("input");
     let readStatusLabelOff = document.createElement("label");
 
     wrapper.className = "radio-selection readToggle";
+    wrapper.appendChild(readStatusDiv);
     wrapper.appendChild(readStatusOn);
     wrapper.appendChild(readStatusLabelOn);
     wrapper.appendChild(readStatusOff);
     wrapper.appendChild(readStatusLabelOff);
 
+    readStatusDiv.innerText = "Are you reading this book?";
+    readStatusDiv.className = "form-section-label";
     readStatusOn.id = `onInput-${index}`;
     readStatusOn.type = "radio";
     readStatusLabelOn.setAttribute("for", `onInput-${index}`);
-    readStatusLabelOn.innerText = "Reading";
+    readStatusLabelOn.innerText = "Yes";
     readStatusOff.id = `offInput-${index}`;
     readStatusOff.type = "radio";
     readStatusLabelOff.setAttribute("for", `offInput-${index}`);
-    readStatusLabelOff.innerText = "Not Reading";
+    readStatusLabelOff.innerText = "No";
     readStatusLabelOn.className = "book-info form-section-label";
     readStatusLabelOff.className = "book-info form-section-label";
     readStatusOn.name = `readStatus-${index}`;
