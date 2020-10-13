@@ -1,54 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Library App</title>
-        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <title>Library App</title>
     </head>
     <body>
-        <header>
-            <nav class="nav-bar">
-                <h1>Library App</h1>
-                <button id="add-book-btn">Add New Book</button>
-            </nav>
-        </header>
-        <div class="container">
-            <main>
-                <div class="book-container" id="bookContainer">
-                    
-                </div>
-                <div class="popup">
-                    <div id="book-form">
-                        <div class="book-form-close-btn">
-                            <i class="fa fa-close close-form-btn" id="close-form" style="font-size:32px;"></i>
-                        </div>
-                        <h2 class="form-header">Book Information</h2>
-                        <form class="form" id="form">
-                            <div class="form-section">
-                                <label for="title" class="form-section-label">Title</label>
-                                <input type="text" class="form-section-input" id="title" name="title" placeholder="Title" required/>
-                            </div>
-                            <div class="form-section">
-                                <label for="author" class="form-section-label">Author</label>
-                                <input type="text" id="author" name="author" class="form-section-input" placeholder="Author" required />
-                            </div>
-                            <div class="form-section">
-                                <label for="title" class="form-section-label">Are you reading this book?</label>
-                                <div class="radio-selection">
-                                    <input id="yes" type="radio" name="read" value="yes" checked />
-                                    <label for="yes" class="form-section-label">Yes</label>
-                                    <input id="no" type="radio" name="read" value="no" />
-                                    <label for="no" class="form-section-label">No</label>
-                                </div>
-                            </div>
-                            <input id="submitBtn" class="submit-btn form-submit" type="submit" value="Add Book"  />
-                        </form>
-                    </div>
-                </div>
-            </main>
+        <!-- <div class="container">
+            <div class="navbar">
+                <h1 class="logo">Library App</h1>
+                <button id="addBookBtn" type="button" class="addBookBtn">Add New Book</button>
+            </div>
+
+        </div>  -->
+        
+        <div id="popup">
+            <form action="" class="bookForm">
+                <button id="closeFormBtn">
+                    <i class="fa fa-close" style="font-size:1rem"></i>
+                </button>
+                <label for="title" class="formLabel">Title</label>
+                <input type="text" class="formInput" placeholder="Title">
+                <label for="author" class="formLabel">Author</label>
+                <input type="text" class="formInput" placeholder="Author">
+                <input type="radio" name="status" id="reading" value="true">
+                <label for="reading" class="formLabel">Reading</label>
+                <input type="radio" name="status" id="notReading" value="false">
+                <label for="notReading" class="formLabel">Not Reading</label>
+                <button type="submit" class="submitFormBtn">Submit</button>
+            </form>
         </div>
         
-        <script src="scripts/script.js"></script>
     </body>
 </html>

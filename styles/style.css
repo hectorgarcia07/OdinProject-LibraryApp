@@ -1,225 +1,114 @@
-body, h1, h2, h4{
+html{
+    font-size: 16px;
+}
+html, body, h1, h2, h3{
+    padding: 0;
     margin: 0;
 }
 
 body{
-    background-color: #FABEC0;
-}
-
-h1, h2{
-    font-family: 'Lobster', cursive;
-    color: white;
-    text-shadow: #FC0 1px 0 10px;
-}
-
-button, .form-section-label, .book-info{
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-    font-weight: 900;
-}
-
-input[type="text"], input[type="password"] { 
-    outline: none;
-}
-
-input, #add-book-btn{
-    border-radius: 10px;
-}
-
-h1{
-    font-size: 2rem;
-}
-button{
-    font-size: 1.3rem;
-}
-
-/*
-    NAV-BAR STYLE
-*/
-
-.nav-bar{
-    display: flex;
-    justify-content: space-between;
-    background-color: #F37970;
-    padding: 1em 1.3em;
-}
-
-#add-book-btn{
-    cursor: pointer;
-    outline: none;
-    border:none;
-    background-color: #E43D40;
-}
-
-#add-book-btn:hover{
-    background-color: #F85C70;
+    background-color: #FFEEE2;
 }
 
 .container{
-    margin-top: .5em;
+
 }
 
-.book-container{
-    width: 90%;
-    margin: 0 auto;
-}
-
-/*
-    Created book entry style
-*/
-.book-item{
-    width: 15%;
-    text-align: center;
-    border-radius: 10px;
-    background-color: rgb(255, 202, 116);
-    position:relative
-}
-
-.fit-text{
-    overflow-wrap: break-word;
-}
-
-.book-row{
+/*------------------------ NAVBAR STYLE ------------------------*/
+.navbar{
     display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    background-color: #f0dbc3;
+    padding: 0.8em 0;
+    border-bottom: 1px solid #a5a5ac;
 }
 
-.readTitle{
-    text-align: center;
+.logo{
+    margin-left: 1rem;
+    color: #57330b;
 }
 
-.readToggle{
-    
-    position: absolute; 
-    bottom: 0px; 
-    margin: 0 auto;
+.addBookBtn{
+    margin-right: 1rem;
+    background-color: #ffffff;
+    color: #57330b;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 7px;
+    border: 2px solid rgb(196, 110, 110);
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 6px 6px rgba(0,0,0,0.2);
+
+}
+
+.addBookBtn:hover{
+    background-color: #dbdada;
+    color: #e69130;
+    border: 2px solid brown;
+}
+
+.addBookBtn:focus{
+    background-color: #bbbbbb;
+    color: #f18100;
+    border: 2px solid black;
+}
+
+/*------------------------ POPUP STYLE ------------------------*/
+#popup{
+    position: fixed;
     width: 100%;
-}
-
-
-/*
-    FORM STYLE
-*/
-.book-form-close-btn{
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
     display: flex;
-    flex-direction: row-reverse;
-    width:100%;
-    margin-right: 0.8em;
-    margin-top: 0.2em;
-    color: red;
+    justify-content: center;
+    align-items: center;
 }
 
-.close-form-btn{
+.bookForm{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid rgb(100, 100, 100);
+    padding: 0 1em 0.75em 1em;
+    background-color: #e7c8a9;
+    border-radius: 8px;
+    box-shadow: 0 6px 6px rgba(0,0,0,0.2);
+}
+
+#closeFormBtn, .formLabel, .formInput,
+.submitFormBtn, .readToggleBtn{
+    margin-top: 0.50em;
+}
+
+#closeFormBtn{
+    width: 2em;
+    box-sizing: border-box;
+    margin-left: auto;
+    background-color: white;
+    border: 1px solid white;
     cursor: pointer;
 }
 
-.fa-close:link,.fa-close:visited{
-    color: red;
-}
-.fa-close:hover{
-    color: hotpink
-}
-.fa-close:focus{
-    color: blue;
+#closeFormBtn:hover{
+    border: 1px solid rgb(109, 109, 109);
 }
 
-
-.popup{
-    background: rgba(0,0,0, 0.3);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-#book-form{
-    width: 25%;
-    height: 65%;
-    border-radius: 20px;
-    background-color: #F8AFA6;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    -webkit-box-shadow: 12px 12px 11px 0px rgba(0, 0, 0, 0.22);
-    -moz-box-shadow:    12px 12px 11px 0px rgba(0, 0, 0, 0.22);
-    box-shadow:         12px 12px 11px 0px rgba(0, 0, 0, 0.22);
-}
-
-.form-header{
-    text-align: center;
-    margin-bottom: 0.9em;
-    width: 100%;
-}
-
-.form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-    height: 75%;
-}
-
-.form-section{
-    display: flex;
-    flex-direction: column;
-    width: 65%;
-}
-
-.form-section-label, .form-section-input, .form-submit{
-    margin: 0.3em 0;
+.formLabel{
     font-size: 1.3rem;
-    padding: 0.2em;
-    cursor:pointer;
-    border: 1px solid rgb(248, 175, 166);
-    box-sizing: border-box;
-    outline: none;
+    
+}
+.formInput{
+    padding: 0.5em 0.5em  0.5em 0.85em;
+    font-size: 0.8rem;
 }
 
-.form-submit{
-    border: 3px solid #F8AFA6;
-    background-color: rgb(255, 100, 126);
-    color: white;
-}
-
-.form-section-input:focus{
-    border-color: red;
-}
-
-.form-submit:hover{
-    border: 3px solid blueviolet;
-}
-
-
-.radio-selection input[type="radio"] {
-  opacity: 0;
-  width: 0;
-}
-
-.radio-selection label{
-    display: inline-block;
-    background-color: rgb(255, 140, 159);
-    padding: 0.5em 0.5em;
-    font-family: sans-serif, Arial;
-    font-size: 0.9rem;
-    border: 1px solid rgb(248, 175, 166);
-    border-radius: 4px;
-    box-sizing: border-box;
-    width: 35%;
-    text-align: center;
-    outline: none;
-}
-
-.radio-selection label:hover{
-    background-color: rgb(255, 170, 184);
-}
-
-.radio-selection input[type="radio"]:checked + label {
-    background-color:#bfb;
-    border-color: #4c4;
+.submitFormBtn{
+    margin: 0 auto;
+    font-size: 1.1rem;
+    padding: 0.3em 0.5em;
+    border: 1px solid rgb(112, 112, 112);
+    border-radius: 5px;
+    background-color: white;
 }
