@@ -1,6 +1,7 @@
 html{
     font-size: 16px;
 }
+
 html, body, h1, h2, h3{
     padding: 0;
     margin: 0;
@@ -11,7 +12,16 @@ body{
 }
 
 .container{
+    
+}
 
+.bookCardContainer{
+    margin: 0 0.8em;
+    display: grid;
+    column-gap: 0.2em;
+    grid-template-columns: minmax(20%, 30%);
+    grid-template-areas:
+        "bookCard .";
 }
 
 /*------------------------ NAVBAR STYLE ------------------------*/
@@ -21,6 +31,7 @@ body{
     background-color: #f0dbc3;
     padding: 0.8em 0;
     border-bottom: 1px solid #a5a5ac;
+    margin-bottom: 1em;
 }
 
 .logo{
@@ -43,7 +54,7 @@ body{
 }
 
 .addBookBtn:hover{
-    background-color: #dbdada;
+    background-color: #f5f5f5;
     color: #e69130;
     border: 2px solid brown;
 }
@@ -59,10 +70,11 @@ body{
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    display: flex;
+    background-color: rgba(0, 0, 0, 0.582);
+    display: none;
     justify-content: center;
     align-items: center;
+    top: 0;
 }
 
 .bookForm{
@@ -72,7 +84,7 @@ body{
     margin: 0 auto;
     border: 1px solid rgb(100, 100, 100);
     padding: 0 1em 0.75em 1em;
-    background-color: #e7c8a9;
+    background-color: #e9d2ba;
     border-radius: 8px;
     box-shadow: 0 6px 6px rgba(0,0,0,0.2);
 }
@@ -87,21 +99,36 @@ body{
     box-sizing: border-box;
     margin-left: auto;
     background-color: white;
-    border: 1px solid white;
+    border: 2px solid rgb(150, 150, 150);
+    border-radius: 4px;
     cursor: pointer;
 }
 
 #closeFormBtn:hover{
-    border: 1px solid rgb(109, 109, 109);
+    border: 2px solid rgb(109, 109, 109);
 }
 
 .formLabel{
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     
 }
+
 .formInput{
     padding: 0.5em 0.5em  0.5em 0.85em;
     font-size: 0.8rem;
+    border-radius: 5px;
+    border: 2px solid rgb(150, 150, 150);
+}
+
+.formInput:hover{
+    border: 2px solid rgb(105, 105, 105);
+}
+
+.formInput:focus{
+    outline: none;
+    border: 2px solid rgb(27, 27, 27);
+    box-shadow:0 0 5px rgb(129, 129, 129);
+
 }
 
 .submitFormBtn{
@@ -111,4 +138,26 @@ body{
     border: 1px solid rgb(112, 112, 112);
     border-radius: 5px;
     background-color: white;
+}
+
+.bookCard{
+    grid-area: bookCard;
+    border: 1px solid rgb(253, 122, 122);
+    padding: 1em;
+    border-radius: 6px;
+    background-color: #ffe7d5;
+}
+
+.cardLabel{
+    margin: 0em;
+    font-size: 0.9rem;
+    color: #632804;
+}
+
+.cardInfo{
+    margin: 0;
+    font-size: 1.5rem;
+    padding-left: 0.4em;
+    color: #bb4800;
+
 }

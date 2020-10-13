@@ -7,14 +7,23 @@
         <title>Library App</title>
     </head>
     <body>
-        <!-- <div class="container">
+        <div class="container">
             <div class="navbar">
                 <h1 class="logo">Library App</h1>
                 <button id="addBookBtn" type="button" class="addBookBtn">Add New Book</button>
             </div>
-
-        </div>  -->
-        
+            <div class="bookCardContainer">
+                <div class="bookCard">
+                    <p class="cardLabel">Title</p>
+                    <span class="cardInfo">Stuff</span>
+                    <p class="cardLabel">Author</p>
+                    <span class="cardInfo">Thing</span>
+                    <p class="cardLabel">Status</p>
+                    <span class="cardInfo">Reading</span>
+                </div>
+            </div>
+            
+        </div> 
         <div id="popup">
             <form action="" class="bookForm">
                 <button id="closeFormBtn">
@@ -24,13 +33,18 @@
                 <input type="text" class="formInput" placeholder="Title">
                 <label for="author" class="formLabel">Author</label>
                 <input type="text" class="formInput" placeholder="Author">
-                <input type="radio" name="status" id="reading" value="true">
-                <label for="reading" class="formLabel">Reading</label>
-                <input type="radio" name="status" id="notReading" value="false">
-                <label for="notReading" class="formLabel">Not Reading</label>
-                <button type="submit" class="submitFormBtn">Submit</button>
+                <label for="reading" class="formLabel">
+                    <input type="radio" name="status" id="reading" value="true">
+                    Reading
+                </label>
+                <label for="notReading" class="formLabel">
+                    <input type="radio" name="status" id="notReading" value="false">
+                    Not Reading
+                </label>
+                <button id="submitFormBtn" type="submit" class="submitFormBtn">Submit</button>
             </form>
         </div>
         
+        <script src="scripts/script.js"></script>
     </body>
 </html>
